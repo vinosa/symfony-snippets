@@ -7,3 +7,21 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+/tests/_output/
+/tests/_support/_generated/
+/tests/acceptance.suite.yml
+/tests/_data/_untracked
+###< docker ###
+.docker/data/*
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
