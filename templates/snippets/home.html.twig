@@ -1,0 +1,10 @@
+{# empty Twig template #}
+{% extends 'snippets/layout.html.twig' %}
+
+{% block body %}
+  
+<router-view :key="$route.fullPath"></router-view>
+
+ 
+{% endblock %}
+ 

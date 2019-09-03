@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       {% include 'snippets/head.html.twig' %}
+    </head>
+    <body>
+     <div id="app" class="snippets-body" transition="modal" >
+        <sni-nav></sni-nav>
+        <div class="content">{% block body %}{% endblock %}</div>
+        <footer></footer> 
+        <modal v-if="showModal"  @close="showModal = false" :body='modalBody' :header='modalHeader' :modalclass='modalClass'>
+        </modal>
+     </div>
+        <div id="i18n"></div>
+      {% include 'snippets/javascripts.html.twig' %}   
+    </body>
+</html>
