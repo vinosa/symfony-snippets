@@ -10,7 +10,7 @@ namespace App\Filters;
 
 /**
  *
- * @author vinogradov
+ * @author vinosa
  */
 interface RepositoryFilter {
     //put your code here

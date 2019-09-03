@@ -12,7 +12,7 @@ use App\Controller\Api\QueryParams ;
 /**
  * Description of FilterPaginationTrait
  *
- * @author vinogradov
+ * @author vinosa
  */
 trait FilterPaginationTrait {
     //put your code here

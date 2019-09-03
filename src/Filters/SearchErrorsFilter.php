@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Description of SearchErrorsFilter
  *
- * @author vinogradov
+ * @author vinosa
  */
 class SearchErrorsFilter implements RepositoryFilter {
     //put your code here

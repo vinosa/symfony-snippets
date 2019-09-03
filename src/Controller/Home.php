@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Description of Home
  *
- * @author vinogradov
+ * @author vinosa
  */
 class Home extends \Symfony\Bundle\FrameworkBundle\Controller\Controller
 {

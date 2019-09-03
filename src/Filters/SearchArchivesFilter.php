@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Description of SearchArchivesRequest
  *
- * @author vinogradov
+ * @author vinosa
  */
 class SearchArchivesFilter implements RepositoryFilter {
     //put your code here

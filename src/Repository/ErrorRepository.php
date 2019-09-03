@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
 /**
  * Description of FileErrorRepository
  *
- * @author vinogradov
+ * @author vinosa
  */
 class ErrorRepository extends EntityRepository {
     //put your code here

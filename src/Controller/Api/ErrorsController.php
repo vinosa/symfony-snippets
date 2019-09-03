@@ -17,7 +17,7 @@ use App\Filters\SearchErrorsFilter;
 /**
  * Description of FileErrorController
  *
- * @author vinogradov
+ * @author vinosa
  */
 class ErrorsController  extends \Symfony\Bundle\FrameworkBundle\Controller\Controller {
     //put your code here

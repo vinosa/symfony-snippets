@@ -17,7 +17,7 @@ use App\Filters\SearchArchivesFilter;
 /**
  * Description of Home
  *
- * @author vinogradov
+ * @author vinosa
  */
 class ArchivesController extends \Symfony\Bundle\FrameworkBundle\Controller\Controller
 {

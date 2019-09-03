@@ -10,7 +10,7 @@ namespace App\Controller\Api;
 
 /**
  *
- * @author vinogradov
+ * @author vinosa
  */
 interface QueryParams {
     //put your code here
