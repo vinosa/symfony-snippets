@@ -28,7 +28,7 @@ class ErrorRepository extends EntityRepository {
     
     public function findByFilter(RepositoryFilter $filter){
         
-        $dql = "select e FROM App\Entity\PacError e ";  
+        $dql = "select e FROM App\Entity\Error e ";  
         $dql .= "  join e.archive a join a.objects o  " ;
         $dql .= $filter->dql();
         $query = $this->getEntityManager()->createQuery($dql);
@@ -38,7 +38,7 @@ class ErrorRepository extends EntityRepository {
     }
     
     public function countByFilter(RepositoryFilter $filter){
-        $dql = "select count(e) FROM App\Entity\PacError e ";  
+        $dql = "select count(e) FROM App\Entity\Error e ";  
         $dql .= "  join e.archive a join a.objects o  ";
         $dql .= $filter->dql();
         $query = $this->getEntityManager()->createQuery($dql);

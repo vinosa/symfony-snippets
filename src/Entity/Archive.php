@@ -80,20 +80,7 @@ class Archive implements \JsonSerializable, SharedResource
     */
     protected $errors;
     
-    public function addError(PacError $error)
-    {
-        $this->errors->add($error) ;
-        $error->setArchive($this) ;
-    }
     
-    public function setErrors(OneOrMoreArchiveErrors $errors): self
-    {
-        foreach($errors->items() as $error){
-            $this->addError(new PacError($error)) ;
-        }
-        $this->status = $errors->archiveStatus() ;
-        return $this ;
-    }
     
     public function status(): ArchiveStatus
     {
@@ -145,13 +132,6 @@ class Archive implements \JsonSerializable, SharedResource
         return $this->status->id() . " archive " . $this->identity->uuid() . " for " . (string) $this->objects->resourceId() ;
     }
     
-    public function packet(Filesystem $filesystem): PacketInterface
-    {
-        if($this->objects->resourceId()->onBooks() && $this->objects->isBook()){
-            return new BooksPacket($filesystem,new BooksResource($this->objects->resourceId()),$this->identity()->uuid()) ;
-        }
-        throw new InvalidResource("platform or entity type not supported for archiving" . $this->objects) ;
-    }
        
     public function patch(\stdClass $data)
     {
