@@ -6,7 +6,7 @@ use App\Entity\ErrorSource;
 use App\Model\Errors\FacileError;
 use App\Entity\ArchiveStatus ;
 
-class AppServicePacModelWorkflowFailedActionTest extends \Codeception\Test\Unit
+class AppModelWorkflowFailedActionTest extends \Codeception\Test\Unit
 {
     /**
      * @var \UnitTester

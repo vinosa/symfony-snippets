@@ -11,7 +11,7 @@ use App\Model\Workflow\StopOnFail ;
 use App\Model\Errors\ActionError ;
 use App\Model\Workflow\FailedAction ;
 
-class AppServicePacModelWorkflowMultipleActionsTest extends \Codeception\Test\Unit
+class AppModelWorkflowMultipleActionsTest extends \Codeception\Test\Unit
 {
     /**
      * @var \UnitTester

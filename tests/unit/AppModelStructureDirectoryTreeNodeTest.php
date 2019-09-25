@@ -4,7 +4,7 @@ use App\Model\Errors\ApplicationError ;
 use App\Model\Filesystem\PacketFile ;
 use League\Flysystem\Adapter\Local ;
 use League\Flysystem\Filesystem ;
-class AppServicePacModelStructureDirectoryTreeNodeTest extends \Codeception\Test\Unit
+class AppModelStructureDirectoryTreeNodeTest extends \Codeception\Test\Unit
 {
     /**
      * @var \UnitTester

@@ -7,7 +7,7 @@ use App\Entity\FileInfo ;
 use App\Model\Validation\XmlValidation;
 use App\Model\Workflow\SucceedAction;
 
-class AppServicePacModelFilesystemPacketFileTest extends \Codeception\Test\Unit
+class AppModelFilesystemPacketFileTest extends \Codeception\Test\Unit
 {
     /**
      * @var \UnitTester

@@ -5,7 +5,7 @@ use League\Flysystem\Filesystem ;
 use App\Model\Xml\Tei ;
 use App\Model\Structure\DirectoryTreeNode;
 use App\Model\Errors\ApplicationError;
-class AppServicePacModelXmlXmlFileTest extends \Codeception\Test\Unit
+class AppModelXmlXmlFileTest extends \Codeception\Test\Unit
 {
     /**
      * @var \UnitTester

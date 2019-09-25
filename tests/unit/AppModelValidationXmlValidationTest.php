@@ -8,7 +8,7 @@ use App\Model\Validation\XmlValidation;
 use App\Model\Workflow\FailedAction;
 use App\Model\Validation\XmlSchemas;
 use App\Model\Errors\ApplicationError;
-class AppServicePacModelValidationXmlValidationTest extends \Codeception\Test\Unit
+class AppModelValidationXmlValidationTest extends \Codeception\Test\Unit
 {
     /**
      * @var \UnitTester
