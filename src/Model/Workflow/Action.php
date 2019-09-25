@@ -8,30 +8,79 @@
 
 namespace App\Model\Workflow;
 
+use App\Entity\ArchiveError;
+use App\Model\Errors\OneOrMoreArchiveErrors;
+use App\Model\Filesystem\PacketFile;
+use App\Model\Errors\ApplicationError ;
 /**
  * Description of Action
  *
  * @author vinosa
  */
-abstract class Action implements ActionInterface {
-    //put your code here
-    /**
-     *
-     * @var OneOrMoreArchiveErrors 
-     */
-    protected $errors ;
+class Action implements ActionInterface {
+    protected $message;
+    protected $description;
+    protected $file = null;
+    protected $source = "";
+    protected $type = "";
+    protected $failed = false;
+    protected $log = "";
     
-    public function __construct(OneOrMoreArchiveErrors $errors) {
-        $this->errors = $errors;
+    public function __construct(string $log = ""){
+        $this->log = $log;
     }
     
-    public function hasErrors(): bool 
+    public function setContent(string $description,string $message=""): ActionInterface
     {
-        return $this->errors->hasErrors() ;
+        $this->description = $description;
+        $this->message = $message ;
+        return $this ;
     }
     
-    public function errors(): OneOrMoreArchiveErrors 
+    public function setSource(string $source): ActionInterface
     {
-        return $this->errors ;
+        $this->source = $source;
+        return $this ;
+    }
+    
+    public function setType(string $type): ActionInterface
+    {
+        $this->type = $type;
+        return $this ;
+    }
+    
+    public function setFile(PacketFile $file): ActionInterface
+    {
+        $this->file = $file;
+        return $this ;
+    }
+    
+    public function appendTolog(string $log)
+    {
+        $this->log .= " " . $log;
+    }
+    
+    public function oneOrMoreErrors(): OneOrMoreArchiveErrors
+    {  
+        if(!$this->failed){
+            throw new ApplicationError("succeed action can not have errors");
+        }
+        return (new ArchiveError($this->description,$this->message))->setType($this->type)->setSource($this->source)->setFile($this->file);
+    }
+        
+    public function log(): string
+    {
+        return $this->log;
+    }
+    
+    public function failed(): bool
+    {
+        return $this->failed;
+    }
+    
+    public function fail(): ActionInterface
+    {
+        $this->failed = true;
+        return $this;
     }
 }

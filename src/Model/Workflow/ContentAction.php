@@ -8,16 +8,16 @@
 
 namespace App\Model\Workflow;
 
+use App\Entity\ErrorType;
 /**
- * Description of CompletedAction
+ * Description of ContentAction
  *
  * @author vinosa
  */
-class SucceedAction extends ActionDecorator {
+class ContentAction extends ActionDecorator {
     //put your code here
-    
-    public function __construct(ActionInterface $action = null,string $log = "succeed") {
+    public function __construct(ActionInterface $action = null,string $log = "generating content") {
         parent::__construct($action,$log);
+        $this->decorable->setType(ErrorType::CONTENT);
     }
- 
 }

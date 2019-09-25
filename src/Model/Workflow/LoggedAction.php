@@ -8,19 +8,17 @@
 
 namespace App\Model\Workflow;
 
-use App\Model\Errors\ActionError ;
+use Psr\Log\LoggerInterface;
+
 /**
- * Description of StopOnFail
+ * Description of LoggedAction
  *
  * @author vinosa
  */
-class StopOnFail extends ActionDecorator  {
+class LoggedAction extends ActionDecorator {
     //put your code here
-    public function __construct(ActionInterface $action) {
-        
+    public function __construct(LoggerInterface $logger,ActionInterface $action ) {
         parent::__construct($action);
-        if($action->failed()){
-            throw new ActionError($action);
-        }
+        $logger->debug($action->log());
     }
 }

@@ -13,11 +13,15 @@ namespace App\Model\Workflow;
  *
  * @author vinosa
  */
-class FailedAction extends Action {
+class FailedAction extends ActionDecorator {
     //put your code here
     
     public function hasErrors(): bool
     {
         return true ;
+    }
+    
+    public function __construct(ActionInterface $action = null,string $description="",string $message="",$log = "failed ") {
+        parent::__construct($action->fail()->setContent($description, $message), $log . $message);
     }
 }

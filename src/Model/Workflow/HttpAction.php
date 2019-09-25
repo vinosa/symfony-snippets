@@ -8,16 +8,16 @@
 
 namespace App\Model\Workflow;
 
+use App\Entity\ErrorType;
 /**
- * Description of CompletedAction
+ * Description of HttpAction
  *
  * @author vinosa
  */
-class SucceedAction extends ActionDecorator {
+class HttpAction extends ActionDecorator {
     //put your code here
-    
-    public function __construct(ActionInterface $action = null,string $log = "succeed") {
+    public function __construct(ActionInterface $action = null,string $log = "http requesting") {
         parent::__construct($action,$log);
+        $this->decorable->setType(ErrorType::HTTP);
     }
- 
 }
