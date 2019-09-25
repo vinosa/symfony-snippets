@@ -6,16 +6,21 @@
  * and open the template in the editor.
  */
 
-namespace App\Model\Filesystem;
+namespace App\Service\Pac\Model\Filesystem;
 
 use GuzzleHttp\Exception\RequestException ;
 use GuzzleHttp\Psr7\Response ;
-use App\Entity\ArchiveError;
-
+use App\Model\Workflow\ActionInterface;
+use App\Model\Workflow\FailedAction;
+use App\Model\Workflow\SucceedAction;
+use App\Model\Workflow\FileAction;
+use App\Model\Workflow\HttpAction;
+use App\Model\Workflow\LoggedAction;
+use App\Model\Workflow\MultipleActions;
 /**
  * Description of FileLoader
  *
- * @author vinosa
+ * @author vinogradov
  */
 class FileLoader {
     //put your code here
@@ -33,7 +38,7 @@ class FileLoader {
     
     public function loadFiles( array $items, array $requestOptions = []): ActionInterface
     {
-        $errors = new ArchiveErrors();
+        $actions = [];
         $client = $this->client ;                             
         $logger = $this->logger ; 
         $requests = function () use ($client, $items, $logger,$requestOptions) {            
@@ -50,20 +55,17 @@ class FileLoader {
         (new \GuzzleHttp\Pool($client, $requests(),[
             'concurrency' => $this->concurrency,
             'options' => $this->poolOptions,
-            "fulfilled" => function (Response $response,$index) use ($items){
-                $this->logger->debug("saving file into " .  (string) $items[$index]->file()->fileinfo() );
+            "fulfilled" => function (Response $response,$index) use ($items,&$actions){
+                $actions[] = new LoggedAction($this->logger,new SucceedAction(new FileAction($items[$index]->file(), new HttpAction(null,"loading"))));
                 $items[$index]->file()->withContents( $response->getBody()->getContents() );
             },
-            "rejected" => function (RequestException $reason,$index) use ($items,&$errors){
-                $errorMessage = "failed loading file from " . $reason->getRequest()->getUri();
-                $this->logger->error($errorMessage);
-                $errors->addOneOrMoreErrors((new FileError($items[$index]->file(), new HttpError(new ArchiveError($reason->getMessage(),$errorMessage)))));
+            "rejected" => function (RequestException $reason,$index) use ($items,&$errors,&$actions){
+                $actions[] = new LoggedAction($this->logger,new FailedAction(new FileAction($items[$index]->file(), new HttpAction(null,"loading")),
+                                                                            "failed loading file from " . $reason->getRequest()->getUri(),
+                                                                            $reason->getMessage()));
             }
         ] ) )->promise()->wait() ;
-        if($errors->hasErrors()){
-            return new FailedAction($errors);
-        }
-        return new SucceedAction();
+        return new MultipleActions($actions);
     }
     
     
