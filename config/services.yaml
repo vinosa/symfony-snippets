@@ -4,6 +4,16 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    locale: 'en'
+    app.api.solrclient.config: 
+        endpoint:
+            documents:
+                host: '%env(SOLR_HOST)%'
+                port: '%env(SOLR_PORT)%'
+                scheme: '%env(SOLR_SCHEME)%'
+                path: '/solr/'
+                core: documents
+                timeout: 150
 
 services:
     # default configuration for services in *this* file
@@ -25,3 +35,36 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Repository\ArchiveRepository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - App\Entity\Archive
+            
+    App\Repository\ErrorRepository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - App\Entity\Error
+            
+    GuzzleHttp\Client:
+        public: true
+        
+    Solarium\Client:
+        public: true
+        shared: false
+        arguments: ['%app.api.solrclient.config%']
+        
+    
+    app.service.pac.packets_storage_filesystem_adapter:
+        class: League\Flysystem\Adapter\Local
+        #arguments: ['%env(PATH_PACKETS)%',,]
+        arguments:
+            $root: '%env(MY_PATH)%'
+            $permissions :
+                'file':
+                    'public': 0660
+                    'private': 0760
+                'dir':
+                    'public': 0770
+                    'private': 0770
