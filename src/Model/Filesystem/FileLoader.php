@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace App\Service\Pac\Model\Filesystem;
+namespace App\Model\Filesystem;
 
 use GuzzleHttp\Exception\RequestException ;
 use GuzzleHttp\Psr7\Response ;
