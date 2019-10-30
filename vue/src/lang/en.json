@@ -1,0 +1,132 @@
+{  
+    "api": {
+        "archives":{
+            "post":{
+                "success": "Archives batch successfully added !"
+            }
+        }
+    },  
+    "true": "yes",
+       "false": "no",
+       "main": { 
+        "true": "yes",
+        "false": "no",
+        "filename": "Filename",
+        "filepath": "path",
+        "valid": "valid",
+        "archivable": "archivable",
+        "message": "message",
+        "archive_id": "Archive id",
+        "for_archive": "for archive",
+        "xmlns": "validation",
+        "back": "Back",
+        "url": "Url",
+         "status_code": "HTTP code",         
+        "path": "Path",
+        "title": "title",
+        "archive_id": "Archive id",
+        "status_id": "status",
+        "OB": "Books",
+        "OJ": "Journals",
+        "all_platforms": "All",
+        "type": "Type",   
+        "platform": "Platform",
+        "site": "Site",
+        "id": "Id",
+        "version": "Version", 
+        "search": "Search",
+        "add": "Add",
+        "uuid": "Uuid",
+        "status": "Status",
+        "all": "All",
+        "source": "Source",
+        "description": "Description",
+        "resource": {
+            "platform": "Platform",
+            "site": "Site",
+            "id": "Id"
+        },
+        "fileinfo": {
+            "extension":"Extension",
+            "filename": "Filename",
+            "filepath": "File path"
+        },
+        "errorinfo": {
+            "description": "Description",
+            "message" : "Message",
+            "type": "Type",
+            "source":"Source"
+        }
+    },
+    "button": {
+        "validations": "Validations",
+         "errors": "Errors",
+         "signal": "Signal",
+         "corrected": "Corrected",
+         "signalled": "Signalled",
+         "view": "View"
+    },
+      "pagination": {
+        "first": "first",
+       "last": "last",
+       "per_page" : "Items per page"
+    },
+    "archive_status": {
+           "queued": "queued",
+           "pending": "pending",
+            "invalid": "invalid",
+            "error": "error",
+            "incomplete": "incomplete",
+            "ready": "ready",
+            "signalled": "signalled",
+            "sent": "sent",
+            "finished": "finished",
+            "rejected": "rejected",
+            "processing": "processing",
+            "all": "tous"
+       },
+    "nav": {
+        "archives": "Archives",
+        "sites": "All sites",
+        "validations" : "Validations",
+        "title": "Archives",
+        "all_platforms": "All platforms",
+        "list_sites": "List sites",
+        "list_archives": "List archives",
+        "search": "Search",
+        "ob" : "Books",
+        "oj" : "Journals",
+        "site_name" : "Site name",
+        "id" : "Id",
+        "platform": "Platform",
+        "all": "all",
+        "OB": "Books",
+        "OJ": "Journals",
+        "errors": "Errors",
+        "new": "New"
+    },
+    "modal":{
+        "header":{
+            "error": "An error has occurred",
+            "success": "Success!",
+            "default": "Open Edition - CINES"
+        }
+    },
+    "archive":{
+        "post": {
+            "ok": "Archive was added to the queue",
+            "invalid_state": "Resource has an invalid or incomplete archive, you must first correct these errors",
+            "resource_not_found": "Resource not found",
+            "invalid_resource": "Resource is invalid"
+        }
+    },
+    "errors": [ 
+      "this is 0 error code message",
+      {  
+        "internal1": "this is internal 1 error message"
+      },
+      [  
+        "this is nested array error 1"
+      ]
+    ]
+  }

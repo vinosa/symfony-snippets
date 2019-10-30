@@ -1,0 +1,122 @@
+{
+   "true": "oui",  
+       "api": {
+            "archives":{
+                "post":{
+                    "success": "Lot d'archives a bien été ajouté !"
+                }
+            }
+        },
+        "main": { 
+            "true": "oui",
+            "false": "non",
+            "filename": "Fichier",
+            "filepath": "chemin",
+            "valid": "valide",
+            "archivable": "archivable",
+            "message": "info",
+            "archive_id": "Archive id",
+            "for_archive": "pour l'archive",
+            "xmlns": "validation",
+            "back": "Retour",
+            "url": "Url",
+            "status_code": "Code HTTP",
+            "extension":"extension",
+            "path": "chemin",
+            "title": "titre",
+            "archive_id": "id de l`archive",         
+            "details": "détails",
+            "status_id": "statut",
+            "OB": "Books",
+            "OJ": "Journals",
+            "all_platforms": "Toutes",
+            "type": "Type",
+            "description": "Description",
+            "platform": "Plateforme",
+            "site": "Site",
+            "id": "Id",
+            "version": "Version", 
+            "search": "Chercher",
+            "add": "Ajouter",
+            "uuid": "Uuid",
+            "status": "Statut",
+            "all": "Tous",
+            "source": "Source",
+            "resource": {
+                "platform": "Plateforme",
+                "site": "Site",
+                "id": "Id"
+            },
+            "fileinfo": {
+                "extension":"Extension",
+                "filename": "Fichier",
+                "filepath": "Chemin"
+            },
+            "errorinfo": {
+                "description": "Description",
+                "message" : "Message",
+                "type": "Type",
+                "source":"Source"
+            }
+        },
+        "button": {
+            "validations": "Validations",
+            "errors": "Erreurs",
+            "signal": "Signaler",
+            "corrected": "Corrigé",
+            "signalled": "Signalé",
+            "view": "Voir"
+        },
+       "archive_status": {           
+           "queued": "en attente",
+           "pending": "pending",
+           "invalid": "invalide",
+           "incomplete": "incomplet",
+           "error": "erreur",
+           "ready": "prêt",
+           "signalled": "signalé",
+           "sent": "envoyé",
+           "finished": "archivé",
+           "rejected": "rejeté",
+           "processing": "en cours",
+           "all": "tous"
+       },
+       "pagination": {
+            "first": "debut",
+            "last": "fin",
+            "per_page" : "Elements par page"
+        },
+    "nav": {
+        "archives": "Archives",
+        "sites": "Tous les sites",
+        "validations" : "Validations",
+        "title": "archivage",
+        "all_platforms": "Toutes les plateformes",
+        "list_sites": "Lister sites",
+        "list_archives": "Lister archives",
+        "search": "Chercher",
+        "ob" : "Books",
+        "oj" : "Journals",
+        "site_name" : "Nom du site",
+        "id" : "Id",
+        "platform": "Plateforme",
+        "all": "Toutes",
+        "errors": "Erreurs",
+        "new": "Nouveau.x"      
+    },
+    "modal":{
+        "header":{
+            "error": "Une erreur est survenue",
+            "success": "Success!",
+            "default": "Open Edition - CINES"
+        }
+    },
+    "archive":{
+        "post": {
+            "ok": "Archive ajoutée avec succès",
+            "invalid_state": "Cette resouce a une archive invalide ou incomplete, veuillez corriger ceci avant",
+            "resource_not_found": "Resource n'a pas été trouvée",
+            "invalid_resource": "Cette resource ne peut pas etre archivée (ce n'est pas un livre..)"
+        }
+    }
+}
